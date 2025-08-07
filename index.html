@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Browser extensions manager UI</title>
+
+  <link rel="stylesheet" href="./assets/styles/main.css">
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="header__container container">
+      <nav class="nav">
+        <div class="nav__container">
+          <a href="#" class="nav__logo">
+            <img src="./assets/images/logo-light.svg" alt="Logo" class="nav__logo-img nav__logo-img--light">
+            <img src="./assets/images/logo-dark.svg" alt="Logo" class="nav__logo-img nav__logo-img--dark">
+          </a>
+          <button class="nav__toggle" id="nav-toggle">
+            <img src="./assets/images/icon-moon.svg" alt="Dark Mode Icon" class="nav__toggle-img" id="nav-toggle-img">
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="extensions">
+      <div class="extensions__container container">
+        <header class="extensions__header">
+          <h1 class="extensions__title">Extensions List</h1>
+          <div class="extensions__filters filters">
+            <button class="filters__button filters__button--active" data-filter="all">All</button>
+            <button class="filters__button" data-filter="active">Active</button>
+            <button class="filters__button" data-filter="inactive">Inactive</button>
+          </div>
+        </header>
+        <ul class="extensions__list" id="extensions-list">
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <script src="./assets/scripts/app.js"></script>
+</body>
+
+</html>
