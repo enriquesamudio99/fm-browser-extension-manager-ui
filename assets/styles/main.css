@@ -143,6 +143,24 @@ ul, ol {
 /* End Reset */
 
 /* Globals */
+a:focus,  
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  box-shadow: 0 0 0 .125rem var(--clr-neutral-0), 0 0 0 .25rem var(--clr-red-400);
+  outline: none;
+}
+
+.dark a:focus,  
+.dark button:focus,
+.dark input:focus,
+.dark textarea:focus,
+.dark select:focus {
+  box-shadow: 0 0 0 .125rem var(--clr-neutral-800), 0 0 0 .25rem var(--clr-red-400);
+  outline: none;
+}
+
 .container {
   width: calc(100% - 2rem);
   margin-inline: auto;
@@ -183,6 +201,15 @@ ul, ol {
   color: var(--clr-neutral-0);
   border: .0625rem solid var(--clr-neutral-600);
   box-shadow: none;
+  transition: all .2s ease-in-out;
+}
+
+.filters__button:hover {
+  background-color: rgba(251, 253, 254, .7);
+}
+
+.dark .filters__button:hover {
+  background-color: var(--clr-neutral-600);
 }
 
 .filters__button--active {
@@ -190,6 +217,12 @@ ul, ol {
   border: .0625rem solid var(--clr-red-700);
   color: var(--clr-neutral-0);
   box-shadow: none;
+  transition: all .2s ease-in-out;
+}
+
+.filters__button--active:hover {
+  background-color: var(--clr-red-500);
+  border: .0625rem solid var(--clr-red-500);
 }
 
 .dark .filters__button--active {
@@ -197,6 +230,11 @@ ul, ol {
   border: .0625rem solid var(--clr-red-400);
   color: var(--clr-neutral-900);
   box-shadow: none;
+}
+
+.dark .filters__button--active:hover {
+  background-color: var(--clr-red-500);
+  border: .0625rem solid var(--clr-red-500);
 }
 
 .card {
@@ -263,12 +301,25 @@ ul, ol {
   letter-spacing: -0.5px;
   padding: .4375rem .9375rem;
   border-radius: 62.4375rem;
+  transition: all .2s ease-in-out;
+}
+
+.card__button:hover {
+  background-color: var(--clr-red-700);
+  color: var(--clr-neutral-0);
+  border: .0625rem solid var(--clr-red-700);
 }
 
 .dark .card__button {
   border: .0625rem solid var(--clr-neutral-600);
   background-color: transparent;
   color: var(--clr-neutral-0);
+}
+
+.dark .card__button:hover {
+  background-color: var(--clr-red-400);
+  color: var(--clr-neutral-900);
+  border: .0625rem solid var(--clr-red-400);
 }
 
 .toggle {
@@ -313,6 +364,15 @@ ul, ol {
 
 .toggle__input:checked + .toggle__label {
   background-color: var(--clr-red-700);
+  transition: all .2s ease-in-out;
+}
+
+.toggle__input:checked + .toggle__label:hover {
+  background-color: var(--clr-red-500);
+}
+
+.dark .toggle__input:checked + .toggle__label:hover {
+  background-color: var(--clr-red-500);
 }
 
 .dark .toggle__input:checked + .toggle__label {
@@ -377,6 +437,16 @@ ul, ol {
   justify-content: center;
   background-color: var(--clr-neutral-100);
   border-radius: .625rem;
+  transition: background-color .2s ease-in-out;
+}
+
+.nav__toggle:hover {
+  background-color: var(--clr-neutral-300);
+}
+
+.nav__toggle:focus {
+  box-shadow: 0 0 0 .125rem var(--clr-neutral-0), 0 0 0 .25rem var(--clr-red-400);
+  outline: none;
 }
 
 .extensions {
@@ -440,6 +510,10 @@ ul, ol {
 
 .dark .nav__toggle {
   background-color: var(--clr-neutral-700);
+}
+
+.dark .nav__toggle:hover {
+  background-color: var(--clr-neutral-600);
 }
 
 .dark .extensions__title {
