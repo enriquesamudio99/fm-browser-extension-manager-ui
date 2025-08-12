@@ -70,6 +70,15 @@ ol[role='list'] {
   list-style: none;
 }
 
+html {
+  background: var(--grad-light);
+}
+
+html.dark {
+  background: var(--grad-dark);
+  color: var(--clr-neutral-0);
+}
+
 body {
   min-height: 100vh;
   font-size: 1rem;
@@ -78,7 +87,7 @@ body {
   background: var(--grad-light);
 }
 
-body.dark {
+.dark body {
   background: var(--grad-dark);
   color: var(--clr-neutral-0);
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="disable-transitions">
 
 <head>
   <meta charset="UTF-8">
@@ -13,7 +13,16 @@
   <link rel="stylesheet" href="./assets/styles/main.css">
 </head>
 
-<body class="disable-transitions">
+<script>
+  (function() {
+    const theme = localStorage.getItem('theme');
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    }
+  })();
+</script>
+
+<body>
 
   <header class="header">
     <div class="header__container container">

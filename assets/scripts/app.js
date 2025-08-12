@@ -1,6 +1,6 @@
 const extensionsList = document.getElementById('extensions-list');
 const filtersButtons = document.querySelectorAll('.filters__button');
-const body = document.body;
+const root = document.documentElement;
 const themeToggle = document.getElementById('nav-toggle');
 const themeToggleImg = document.getElementById('nav-toggle-img');
 
@@ -9,7 +9,7 @@ let allExtensions = [];
 let filteredExtensions = [];
 
 requestAnimationFrame(() => {
-  document.body.classList.remove('disable-transitions');
+  root.classList.remove('disable-transitions');
 });
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -24,7 +24,7 @@ const initApp = async () => {
   filtersButtons.forEach(button => {
     button.addEventListener('click', async () => {
 
-      document.querySelector('.filters__button--active')?.classList.remove('filters__button--active');
+      root.querySelector('.filters__button--active')?.classList.remove('filters__button--active');
 
       button.classList.add('filters__button--active');
 
@@ -70,7 +70,7 @@ const toggleExtensionState = (event) => {
     return extension;
   });
 
-  const currentFilter = document.querySelector('.filters__button--active').dataset.filter;
+  const currentFilter = root.querySelector('.filters__button--active').dataset.filter;
   if (currentFilter !== 'all') {
     filterExtensions(currentFilter);
   }
@@ -80,7 +80,7 @@ const removeExtension = (event) => {
   const extensionId = +event.target.dataset.id;
   allExtensions = allExtensions.filter(extension => extension.id !== extensionId);
 
-  const currentFilter = document.querySelector('.filters__button--active').dataset.filter;
+  const currentFilter = root.querySelector('.filters__button--active').dataset.filter;
   filterExtensions(currentFilter);
 }
 
@@ -194,19 +194,19 @@ const darkMode = () => {
   applyTheme(savedTheme === 'dark');
 
   themeToggle.addEventListener('click', () => {
-    body.classList.add('disable-transitions');
+    root.classList.add('disable-transitions');
 
-    const isNowDark = !body.classList.contains('dark');
+    const isNowDark = !root.classList.contains('dark');
     applyTheme(isNowDark);
 
     requestAnimationFrame(() => {
-      body.classList.remove('disable-transitions');
+      root.classList.remove('disable-transitions');
     });
   });
 }
 
 const applyTheme = (isDark) => {
-  body.classList.toggle('dark', isDark);
+  root.classList.toggle('dark', isDark);
 
   themeToggleImg.src = isDark
     ? './assets/images/icon-sun.svg'
