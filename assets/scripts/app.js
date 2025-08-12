@@ -8,6 +8,10 @@ const themeToggleImg = document.getElementById('nav-toggle-img');
 let allExtensions = [];
 let filteredExtensions = [];
 
+requestAnimationFrame(() => {
+  document.body.classList.remove('disable-transitions');
+});
+
 document.addEventListener('DOMContentLoaded', () => {
   initApp();
 });
@@ -186,23 +190,28 @@ const renderExtensionsList = (extensions) => {
 }
 
 const darkMode = () => {
-  if (localStorage.getItem('theme') === 'dark') {
-    body.classList.add('dark');
-    themeToggleImg.src = './assets/images/icon-sun.svg';
-    themeToggleImg.alt = 'Light Mode Icon';
-  } else {
-    body.classList.remove('dark');
-    themeToggleImg.src = './assets/images/icon-moon.svg';
-    themeToggleImg.alt = 'Dark Mode Icon';
-  }
+  const savedTheme = localStorage.getItem('theme');
+  applyTheme(savedTheme === 'dark');
 
   themeToggle.addEventListener('click', () => {
-    body.classList.toggle('dark');
+    body.classList.add('disable-transitions');
 
-    const isDark = body.classList.contains('dark');
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    const isNowDark = !body.classList.contains('dark');
+    applyTheme(isNowDark);
 
-    themeToggleImg.src = isDark ? './assets/images/icon-sun.svg' : './assets/images/icon-moon.svg';
-    themeToggleImg.alt = isDark ? 'Light Mode Icon' : 'Dark Mode Icon';
+    requestAnimationFrame(() => {
+      body.classList.remove('disable-transitions');
+    });
   });
 }
+
+const applyTheme = (isDark) => {
+  body.classList.toggle('dark', isDark);
+
+  themeToggleImg.src = isDark
+    ? './assets/images/icon-sun.svg'
+    : './assets/images/icon-moon.svg';
+  themeToggleImg.alt = isDark ? 'Light Mode Icon' : 'Dark Mode Icon';
+
+  localStorage.setItem('theme', isDark ? 'dark' : 'light');
+};
